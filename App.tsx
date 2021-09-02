@@ -37,6 +37,8 @@ const styleLinksHeader = StyleSheet.create({
     justifyContent:"space-between",
     paddingHorizontal:35,
     paddingVertical:10,
+    borderBottomColor:"#F0F0F0",
+    borderBottomWidth:0.5,
   },
 
 });
