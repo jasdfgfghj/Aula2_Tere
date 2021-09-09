@@ -29,6 +29,19 @@ const LinksHeader = ()=>{
   );
 };
 
+const LinksBaseboard = ()=>{
+  return(
+    <View style={styleLinksBaseboard.container}>
+      <Image source={require("./src/assets/link-like.png")}/>
+      <OneLinkHeader nome="Link"/>
+      <Image source={require("./src/assets/link-coment.png")}/>
+      <OneLinkHeader nome="Comment"/>
+      <Image source={require("./src/assets/link-share.png")}/>
+      <OneLinkHeader nome="Share"/>
+    </View>
+  );
+};
+
 const styleLinksHeader = StyleSheet.create({
   container:{
     //backgroudColor:"lightblue",
@@ -39,6 +52,17 @@ const styleLinksHeader = StyleSheet.create({
     paddingVertical:10,
     borderBottomColor:"#F0F0F0",
     borderBottomWidth:0.5,
+  },
+
+});
+
+const styleLinksBaseboard = StyleSheet.create({
+  container:{
+    color:"white",
+    flexDirection:"row",
+    justifyContent:"space-between",
+    paddingHorizontal:40,
+    paddingVertical:15,
   },
 
 });
@@ -71,6 +95,7 @@ export default function App() {
           </Image>
       </View>
       <LinksHeader></LinksHeader>
+      <LinksBaseboard></LinksBaseboard>
 
     </View>
   );
@@ -84,7 +109,7 @@ const styles = StyleSheet.create({
 
   header: {
     minHeight: 70,
-    backgroundColor: '#436980',
+    backgroundColor: '#4369B0',
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
