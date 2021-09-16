@@ -1,9 +1,19 @@
-import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity,  Linking } from 'react-native';
+import { Text, View, TextInput, Image, TouchableOpacity,  Linking } from 'react-native';
+import { styles } from './style';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackNavigationParamList } from './types';
 
+type LoginPros = NativeStackNavigationProp<StackNavigationParamList, 'Login'>;
 
 const Login = () => {
+    const navigation = useNavigation<LoginPros>();
+
+    function irParaTelaHome(){
+        navigation.navigate('Home');
+    }
+
     return(
         <View style={styles.container}>
             <View style={styles.viewLogo}>
@@ -15,8 +25,8 @@ const Login = () => {
                 <TextInput style={styles.input} placeholder="Email"></TextInput>
                 <TextInput secureTextEntry={true} style={styles.input} placeholder="Password"></TextInput>
             </View>
-
-            <TouchableOpacity style={styles.buttonContainer}>
+        
+            <TouchableOpacity style={styles.buttonContainer} onPress={irParaTelaHome}>
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
 
@@ -28,53 +38,5 @@ const Login = () => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#4369B0',
-
-    },
-    viewLogo:{
-        flexDirection: 'row',
-        alignSelf: 'flex-start',
-        paddingVertical: 20,
-        paddingHorizontal:20,
-    },
-   
-    title:{
-        color: '#FFF',
-        fontSize: 30,
-        fontWeight: 'bold',
-    },
-    input:{
-        height: 40,
-        width: 300,
-        backgroundColor: "#FFF",
-        marginBottom: 20,
-        paddingHorizontal: 24,
-    },
-    buttonContainer: {
-        height: 45,
-        width: 300,
-        backgroundColor: "#2C4877",
-        paddingVertical: 10,
-        paddingHorizontal: 12
-    },
-
-    buttonText: {
-        fontSize: 18,
-        color: "#fff",
-        fontWeight: "bold",
-        alignSelf: "center",
-    },
-    link:{
-        color: '#FFF',
-        textDecorationLine: 'underline',
-        marginTop: 40,
-    }
-});
 
 export default Login;
