@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#4369B0',
+        marginHorizontal:100,
 
     },
     viewLogo:{
@@ -45,5 +46,12 @@ export const styles = StyleSheet.create({
         color: '#FFF',
         textDecorationLine: 'underline',
         marginTop: 40,
+    },
+    textInput:{
+        height:40,
+        borderColor:'#4369B0',
+        borderWidth:1,
+        borderRadius:0,
+        color:'black',
     }
 });

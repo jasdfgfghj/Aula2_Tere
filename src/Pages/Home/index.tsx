@@ -1,10 +1,12 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Text, ScrollView, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { StyleOneLinkHeader, styleLinksHeader, styleLinksBaseboard, styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { StackNavigationParamList } from './types';
+import {StackNavigatorParamList } from '../types';
+
+import {Post} from '../Post';
 
 const OneLinkHeader = (props:any) => {
     return(
@@ -44,7 +46,7 @@ const OneLinkHeader = (props:any) => {
     );
   };
 
-type HomePros = NativeStackNavigationProp<StackNavigationParamList, 'Home'>;
+type HomePros = NativeStackNavigationProp<StackNavigatorParamList, 'Home'>;
 
 const Home = () => {
   const navigation = useNavigation<HomePros>();
@@ -81,12 +83,16 @@ const Home = () => {
         </View>
         <LinksHeader></LinksHeader>
         <LinksBaseboard></LinksBaseboard>
-      
-        <View style={styles.Viewbuttom}>
-          <TouchableOpacity style={styles.buttom} onPress={irParaTelaLogin}>
-              <Text style={styles.ViewbuttomText}>Ir para outra tela</Text>
-          </TouchableOpacity>
-        </View>
+                
+        <TouchableOpacity onPress={irParaTelaLogin}>
+          <Text>Ir para Login</Text>
+        </TouchableOpacity>
+
+        <ScrollView>
+          <Post/>
+          <Post/>
+        </ScrollView>
+
     
     </View>
     );

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, View, TextInput, Image, TouchableOpacity,  Linking } from 'react-native';
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { StackNavigationParamList } from './types';
+import { StackNavigatorParamList } from '../types';
 
-type LoginPros = NativeStackNavigationProp<StackNavigationParamList, 'Login'>;
+type LoginPros = NativeStackNavigationProp<StackNavigatorParamList, 'Login'>;
 
 const Login = () => {
+    const [meuTexto, setMeuTexto] = useState('aluno');
+
     const navigation = useNavigation<LoginPros>();
 
     function irParaTelaHome(){
@@ -25,9 +27,9 @@ const Login = () => {
                 <TextInput style={styles.input} placeholder="Email"></TextInput>
                 <TextInput secureTextEntry={true} style={styles.input} placeholder="Password"></TextInput>
             </View>
-        
+
             <TouchableOpacity style={styles.buttonContainer} onPress={irParaTelaHome}>
-                <Text style={styles.buttonText}>Login</Text>
+                <Text style={styles.buttonText}>Log In</Text>
             </TouchableOpacity>
 
             <Text style={styles.link}
@@ -35,6 +37,10 @@ const Login = () => {
                 Sign up for Facebook
             </Text>
 
+            <TextInput style={styles.textInput} 
+                onChangeText={(text)=>{setMeuTexto(text);console.log(meuTexto)}}
+            />
+            <Text>{meuTexto}</Text>
         </View>
     );
 }
